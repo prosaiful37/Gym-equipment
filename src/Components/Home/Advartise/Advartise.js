@@ -11,9 +11,9 @@ const Advartise = () => {
           <div class="">
             <div className="grid md:grid-cols-3 gap-5">
 
-              <div class="card bg-base-100  image-full rounded-none">
+              <div class="card image-full rounded-none  ">
                 <figure>
-                  <img src={banner1} alt="Shoes" />
+                  <img className="" src={banner1} alt="Shoes" />
                 </figure>
                 <div class="card-body mt-10">
                   <h2 class=" text-white italic font-bold text-2xl">WOMENS FINTNESS BODYCARE</h2>

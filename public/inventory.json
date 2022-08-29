@@ -1,0 +1,50 @@
+[
+    {
+        "name": "OLYMPIC WEIGHT BENCH",
+        "img" : "https://www.bestusedgymequipment.com/wp-content/uploads/2020/09/cybex-olympic-incline-bench-600x600.jpg",
+        "discription" : "The bench press is a popular type of gym equipment, especially for those just starting to get into weight lifting. ",
+        "price" : 5602,
+        "quantity" : 10,
+        "supplierName" : "Jhon dow"
+    },
+    {
+        "name": "INCLINE BENCH PRESS",
+        "img" : "https://www.bestusedgymequipment.com/wp-content/uploads/2020/09/olympic-incline-bench-600x600.jpg",
+        "discription" : "The incline bench is exactly the same as the bench press; the only difference is it allows you to press at an incline.",
+        "price" : 7892,
+        "quantity" : 15,
+        "supplierName" : "Jhon dow"
+    },
+    {
+        "name": "SEATED DIP MACHINE",
+        "img" : "https://www.bestusedgymequipment.com/wp-content/uploads/2018/03/hammer-strength-plate-loaded-seated-dip-600x600.jpg",
+        "discription" : "Fancy a tricep burner? The seated dip machine allows you to enjoy all the benefits of normal bench dips but using ",
+        "price" : 3048,
+        "quantity" : 15,
+        "supplierName" : "Jhon dow"
+    },
+    {
+        "name": "DECLINE BENCH PRESS",
+        "img" : "https://www.bestusedgymequipment.com/wp-content/uploads/2018/04/hammer-strength-olympic-decline-bench-600x600.jpg",
+        "discription" : "This piece of gym equipment allows you to work out while lying down on a decline.",
+        "price" : 8400,
+        "quantity" : 20,
+        "supplierName" : "Rahim ali khan"
+    },
+    {
+        "name": "PREACHER CURL BENCH",
+        "img" : "https://www.bestusedgymequipment.com/wp-content/uploads/2021/01/buge-biceps-curl.jpg",
+        "discription" : "If you want to specifically focus on pumping up those biceps, then you can perform isolated movements with a preacher curl bench.",
+        "price" : 7560,
+        "quantity" : 10,
+        "supplierName" : "Kuddus Jamel"
+    },
+    {
+        "name": "ARM EXTENSION MACHINE",
+        "img" : "https://www.bestusedgymequipment.com/wp-content/uploads/2020/09/cybex-vr2-arm-extension-600x600.jpg",
+        "discription" : "This machine allows you to specifically focus on your triceps, working them out using resistance weights. It allows",
+        "price" : 9120,
+        "quantity" : 11,
+        "supplierName" : "Abdul salam"
+    }
+]

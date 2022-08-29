@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import React from "react";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import cardImage from "../../Images/pexels-alesia-kozik-8155100.jpg";
 import Loading from "../Shared/Loading/Loading";
@@ -20,8 +20,10 @@ const Login = () => {
     auth
   );
 
-
   const navigate = useNavigate()
+  const location = useLocation()
+
+  let from = location.state?.from?.pathname || "/";
 
   if (error || passError) {
       errorMsg =  <p className="text-error">Error: {error.message || error.passError}</p>
@@ -32,7 +34,7 @@ const Login = () => {
   }
 
   if (user) {
-   navigate('/');
+    navigate(from, { replace: true });
   }
 
 

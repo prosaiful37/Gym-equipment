@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Inventory = () => {
+    
     return (
         <div>
             <h2>This is Inventory</h2>
