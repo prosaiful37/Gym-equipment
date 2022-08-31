@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
+  const navigate = useNavigate()
   const [inventories, setInventory] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/inventories/${inventoryId}`)
@@ -13,39 +14,71 @@ const InventoryDetails = () => {
 
 
 
+  //Quentity deacase
+  const quentityDecrease = () => {
+    const privousQuentity = inventories.quantity;
+    console.log(privousQuentity)
+   
+    
+  }
 
-//   add quentity form
-const handleDeliverdForm = event => {
+
+  // navigate management inventory
+  const navigateToManagement = () => {
+    navigate('/manageinventory')
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //   add quentity form
+  const handleDeliverdForm = (event) => {
     event.preventDefault();
 
-     const QuentityValue = event.target.quentityAdd.value;
-     const newQuentityValue = parseInt(QuentityValue);
-    
-    if(newQuentityValue < 0){
-        alert('Not allow nagetive value');
-        return;
+    const QuentityValue = event.target.quentityAdd.value;
+    const newQuentityValue = parseInt(QuentityValue);
+
+    if (newQuentityValue < 0) {
+      alert("Not allow nagetive value");
+      return;
     }
-    console.log(newQuentityValue)
 
-    const priviousQuentity = parseInt(inventories?.quantity)
+    const priviousQuentity = parseInt(inventories?.quantity);
     const totalQuentity = newQuentityValue + priviousQuentity;
-    console.log(totalQuentity);
-    const quetityUpdate = {totalQuentity};
+    // console.log(totalQuentity);
+    const quentityUpdate = { totalQuentity };
 
-    const url = `http://localhost:5000/inventories/${inventoryId}`;
-    fetch(url, {
-        method: 'PUT',
-        headers: {
-            'content-type' : "application/json",
-        },
-        body: JSON.stringify(quetityUpdate)
+    //quentity add
+    fetch(`http://localhost:5000/inventories/${inventoryId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(quentityUpdate),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-    })
-
-}
+      .then((res) => res.json())
+      .then((data) => {
+        if(data.success){
+          console.log('data update', data);
+          setInventory(data)
+        }
+      });
+  };
 
   return (
     <div className="">
@@ -79,6 +112,11 @@ const handleDeliverdForm = event => {
                 <h2 className="font-bold">
                   Supplier: {inventories.supplierName}
                 </h2>
+                <div class="card-actions ">
+                  <button onClick={quentityDecrease} class="btn btn-secondary rounded-none">
+                    Deliverd
+                  </button>
+                </div>
               </div>
             </div>
             {/* from add inventory quenity */}
@@ -86,28 +124,29 @@ const handleDeliverdForm = event => {
               <div class="card-body">
                 <h2 class="card-title font-bold">Deliverd Inventory Item</h2>
                 <form onSubmit={handleDeliverdForm} action="">
-                    <div class="form-control">
+                  <div class="form-control">
                     <div class="input-group">
-                        <input
-                            type="number"
-                            name='quentityAdd'
-                            class="input input-bordered"
-                        />
-                        <button class="btn btn-secondary hover:bg-primary">Add</button>
+                      <input
+                        type="number"
+                        name="quentityAdd"
+                        class="input input-bordered"
+                      />
+                      <button class="btn btn-secondary hover:bg-primary">
+                        ReStock
+                      </button>
                     </div>
-                    </div>
+                  </div>
                 </form>
               </div>
             </div>
             <div class="card-actions ">
-              <button class="btn btn-primary btn-block">Mangae Inventory</button>
+              <button onClick={navigateToManagement} class="btn btn-primary btn-block">
+                Mangae Inventory
+              </button>
             </div>
-
           </div>
-          
         </div>
       </div>
-      
     </div>
   );
 };

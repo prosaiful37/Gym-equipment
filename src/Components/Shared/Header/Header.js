@@ -7,13 +7,12 @@ import logo from "../../../Images/logo.png";
 import Loading from "../Loading/Loading";
 
 const Header = () => {
-  const [user ] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const logout = () => {
     signOut(auth);
   };
 
-  
   return (
     <div class="navbar bg-primary sm:p-0 md:px-5">
       <div class="navbar-start m-0">
@@ -58,9 +57,9 @@ const Header = () => {
             <li>
               <Link
                 className="uppercase font-bold  md:text-white italic  md:hover:bg-white hover:text-primary"
-                to="/inventory"
+                to="/manageinventory"
               >
-                Inventory
+                Management-Inventory
               </Link>
             </li>
             <li>
@@ -70,6 +69,38 @@ const Header = () => {
               >
                 Blogs
               </Link>
+            </li>
+            <li>
+              {user ? (
+                <div class="dropdown dropdown-end">
+                  <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                      <img src="https://placeimg.com/80/80/people" />
+                    </div>
+                  </label>
+                  <ul
+                    tabindex="0"
+                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a class="justify-between">
+                        Profile
+                        <span class="badge">New</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a onClick={logout}>Logout</a>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  class=" uppercase text-white italic font-bold  hover:bg-white hover:text-primary "
+                >
+                  LogIn
+                </Link>
+              )}
             </li>
           </ul>
         </div>
@@ -105,9 +136,9 @@ const Header = () => {
           <li>
             <Link
               className="uppercase font-bold  md:text-white italic  md:hover:bg-white hover:text-primary"
-              to="/inventory"
+              to="/manageinventory"
             >
-              Inventory
+              manageinventory
             </Link>
           </li>
           <li>
@@ -137,7 +168,7 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a onClick={logout} >Logout</a>
+                    <a onClick={logout}>Logout</a>
                   </li>
                 </ul>
               </div>

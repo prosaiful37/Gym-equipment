@@ -19,7 +19,7 @@ const InventoryItem = () => {
         
         <div class="grid md:grid-cols-3 gap-5">
         {
-            inventories.map(inventory => <InventoryItems key={inventory.id} inventory={inventory}></InventoryItems> )
+            inventories.slice(0, 6).map(inventory => <InventoryItems key={inventory.id} inventory={inventory}></InventoryItems> )
         }
         </div>
       </div>
